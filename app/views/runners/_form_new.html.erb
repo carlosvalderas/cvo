@@ -1,0 +1,101 @@
+<%= form_for(@runner) do |f| %>
+  <% if @runner.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@runner.errors.count, "error") %> prohibited this runner from being saved:</h2>
+
+      <ul>
+      <% @runner.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :rut %><br>
+    <%= f.text_field :rut %>
+  </div>
+  <div class="field">
+    <%= f.label :sexo, 'Género' %><br>
+    <%= f.text_field :sexo %>
+  </div>
+  <div class="field">
+    <%= f.label :nombres %><br>
+    <%= f.text_field :nombres %>
+  </div>
+  <div class="field">
+    <%= f.label :apellido_paterno %><br>
+    <%= f.text_field :apellido_paterno %>
+  </div>
+  <div class="field">
+    <%= f.label :apellido_materno %><br>
+    <%= f.text_field :apellido_materno %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha_nac, 'Fecha de nacimiento' %><br>
+    <%= f.date_select :fecha_nac %>
+  </div>
+  <div class="field">
+    <%= f.label :pais, 'País' %><br>
+    <%= f.text_field :pais %>
+  </div>
+  <div class="field">
+    <%= f.label :ciudad %><br>
+    <%= f.text_field :ciudad %>
+  </div>
+  <div class="field">
+    <%= f.label :direccion, 'Dirección' %><br>
+    <%= f.text_field :direccion %>
+  </div>
+  <div class="field">
+    <%= f.label :telefono, 'Teléfono' %><br>
+    <%= f.number_field :telefono %>
+  </div>
+  <div class="field">
+    <%= f.label :correo %><br>
+    <%= f.text_field :correo %>
+  </div>
+  <div class="field">
+    <%= f.label :club, 'Club o Team' %><br>
+    <%= f.text_field :club %>
+  </div>
+  <div class="field">
+    <%= f.label :talla, 'Talla de polera (regalo)' %><br>
+    <%= f.text_field :talla %>
+  </div>
+  <div class="field">
+    <%= f.label :persona_emergencia,'En caso de emergencia llamar a' %><br>
+    <%= f.text_field :persona_emergencia %>
+  </div>
+  <div class="field">
+    <%= f.label :numero_emergencia, 'Teléfono de emergencia' %><br>
+    <%= f.number_field :numero_emergencia %>
+  </div>
+  <div class="field">
+    <%= f.label :peblema, 'Tiene algún problema médico?' %><br>
+    <%= f.text_field :peblema %>
+  </div>
+  <div class="field">
+    <%= f.label :alergia, 'Es alérgico a algo?' %><br>
+    <%= f.text_field :alergia %>
+  </div>
+  <div class="field">
+    <%= f.label :prescripcion, 'Tiene alguna prescripción médica?' %><br>
+    <%= f.text_field :prescripcion %>
+  </div>
+  <div class="field">
+    <%= f.label :tratamiento, 'Está bajo algún tratamiento?' %><br>
+    <%= f.text_field :tratamiento %>
+  </div>
+  <div class="field">
+    <%= f.label :declaracion, 'Acepto' %><br>
+    <%= f.check_box :declaracion %>
+  </div>
+  <div class="field">
+    <%= f.label :rut_pago, 'Rut de la persona que deposita/transfiere' %><br>
+    <%= f.text_field :rut_pago %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Lista de Productos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tazones</th>
+      <th>Tricotas</th>
+      <th>Bandanas</th>
+      <th>Tallas tricotas</th>
+      <th>Total</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.tazones %></td>
+        <td><%= product.tricotas %></td>
+        <td><%= product.bandanas %></td>
+        <td><%= product.tallas_tricotas %></td>
+        <td><%= product.total %></td>
+        <td><%= link_to 'Ver', product, :class => 'btn btn-xs btn-success' %></td>
+        <td><%= link_to 'Editar', edit_product_path(product), :class => 'btn btn-xs btn-warning' %></td>
+        <td><%= link_to 'Eliminar', product, method: :delete, data: { confirm: 'Estás seguro?' }, :class => 'btn btn-xs btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nuevo Producto', new_product_path %>

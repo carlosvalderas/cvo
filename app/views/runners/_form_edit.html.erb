@@ -1,0 +1,117 @@
+<%= form_for(@runner) do |f| %>
+  <% if @runner.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@runner.errors.count, "error") %> prohibited this runner from being saved:</h2>
+
+      <ul>
+      <% @runner.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :rut %><br>
+    <%= f.text_field :rut %>
+  </div>
+  <div class="field">
+    <%= f.label :sexo %><br>
+    <%= f.text_field :sexo %>
+  </div>
+  <div class="field">
+    <%= f.label :nombres %><br>
+    <%= f.text_field :nombres %>
+  </div>
+  <div class="field">
+    <%= f.label :apellido_paterno %><br>
+    <%= f.text_field :apellido_paterno %>
+  </div>
+  <div class="field">
+    <%= f.label :apellido_materno %><br>
+    <%= f.text_field :apellido_materno %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha_nac %><br>
+    <%= f.date_select :fecha_nac %>
+  </div>
+  <div class="field">
+    <%= f.label :pais %><br>
+    <%= f.text_field :pais %>
+  </div>
+  <div class="field">
+    <%= f.label :ciudad %><br>
+    <%= f.text_field :ciudad %>
+  </div>
+  <div class="field">
+    <%= f.label :direccion %><br>
+    <%= f.text_field :direccion %>
+  </div>
+  <div class="field">
+    <%= f.label :telefono %><br>
+    <%= f.number_field :telefono %>
+  </div>
+  <div class="field">
+    <%= f.label :correo %><br>
+    <%= f.text_field :correo %>
+  </div>
+  <div class="field">
+    <%= f.label :club %><br>
+    <%= f.text_field :club %>
+  </div>
+  <div class="field">
+    <%= f.label :talla %><br>
+    <%= f.text_field :talla %>
+  </div>
+  <div class="field">
+    <%= f.label :persona_emergencia %><br>
+    <%= f.text_field :persona_emergencia %>
+  </div>
+  <div class="field">
+    <%= f.label :numero_emergencia %><br>
+    <%= f.number_field :numero_emergencia %>
+  </div>
+  <div class="field">
+    <%= f.label :peblema %><br>
+    <%= f.text_field :peblema %>
+  </div>
+  <div class="field">
+    <%= f.label :alergia %><br>
+    <%= f.text_field :alergia %>
+  </div>
+  <div class="field">
+    <%= f.label :prescripcion %><br>
+    <%= f.text_field :prescripcion %>
+  </div>
+  <div class="field">
+    <%= f.label :tratamiento %><br>
+    <%= f.text_field :tratamiento %>
+  </div>
+  <div class="field">
+    <%= f.label :declaracion %><br>
+    <%= f.text_field :declaracion %>
+  </div>
+  <div class="field">
+    <%= f.label :rut_pago %><br>
+    <%= f.text_field :rut_pago %>
+  </div>
+  <div class="field">
+    <%= f.label :pago %><br>
+    <%= f.check_box :pago %>
+  </div>
+  <div class="field">
+    <%= f.label :dorsal %><br>
+    <%= f.number_field :dorsal %>
+  </div>
+  <div class="field">
+    <%= f.label :lugar %><br>
+    <%= f.number_field :lugar %>
+  </div>
+  <div class="field">
+    <%= f.label :tiempo %><br>
+    <%= f.time_select :tiempo %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tazones:</strong>
+  <%= @product.tazones %>
+</p>
+
+<p>
+  <strong>Tricotas:</strong>
+  <%= @product.tricotas %>
+</p>
+
+<p>
+  <strong>Bandanas:</strong>
+  <%= @product.bandanas %>
+</p>
+
+<p>
+  <strong>Tallas tricotas:</strong>
+  <%= @product.tallas_tricotas %>
+</p>
+
+<p>
+  <strong>Total:</strong>
+  <%= @product.total %>
+</p>
+
+<%= link_to 'Editar', edit_product_path(@product) %> |
+<%= link_to 'Atrás', products_path %>

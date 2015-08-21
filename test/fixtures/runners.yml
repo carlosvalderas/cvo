@@ -1,0 +1,55 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  rut: MyString
+  sexo: MyString
+  nombres: MyString
+  apellido_paterno: MyString
+  apellido_materno: MyString
+  fecha_nac: 2015-08-20
+  pais: MyString
+  ciudad: MyString
+  direccion: MyString
+  telefono: 1
+  correo: MyString
+  club: MyString
+  talla: MyString
+  persona_emergencia: MyString
+  numero_emergencia: 1
+  peblema: MyString
+  alergia: MyString
+  prescripcion: MyString
+  tratamiento: MyString
+  declaracion: MyString
+  rut_pago: MyString
+  pago: false
+  dorsal: 1
+  lugar: 1
+  tiempo: 2015-08-20 19:17:20
+
+two:
+  rut: MyString
+  sexo: MyString
+  nombres: MyString
+  apellido_paterno: MyString
+  apellido_materno: MyString
+  fecha_nac: 2015-08-20
+  pais: MyString
+  ciudad: MyString
+  direccion: MyString
+  telefono: 1
+  correo: MyString
+  club: MyString
+  talla: MyString
+  persona_emergencia: MyString
+  numero_emergencia: 1
+  peblema: MyString
+  alergia: MyString
+  prescripcion: MyString
+  tratamiento: MyString
+  declaracion: MyString
+  rut_pago: MyString
+  pago: false
+  dorsal: 1
+  lugar: 1
+  tiempo: 2015-08-20 19:17:20

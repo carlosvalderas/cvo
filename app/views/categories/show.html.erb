@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tipo:</strong>
+  <%= @category.tipo %>
+</p>
+
+<p>
+  <strong>Sexo:</strong>
+  <%= @category.sexo %>
+</p>
+
+<p>
+  <strong>Edad:</strong>
+  <%= @category.edad %>
+</p>
+
+<%= link_to 'Editar', edit_category_path(@category) %> |
+<%= link_to 'Atrás', categories_path %>

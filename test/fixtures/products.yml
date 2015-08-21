@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tazones: 1
+  tricotas: 1
+  bandanas: 1
+  tallas_tricotas: MyString
+  total: 1
+
+two:
+  tazones: 1
+  tricotas: 1
+  bandanas: 1
+  tallas_tricotas: MyString
+  total: 1

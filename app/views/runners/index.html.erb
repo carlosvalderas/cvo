@@ -1,0 +1,75 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Lista de Corredores</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Rut</th>
+      <th>Sexo</th>
+      <th>Nombres</th>
+      <th>Apellido paterno</th>
+      <th>Apellido materno</th>
+      <th>Fecha nac</th>
+      <th>Pais</th>
+      <th>Ciudad</th>
+      <th>Direccion</th>
+      <th>Telefono</th>
+      <th>Correo</th>
+      <th>Club</th>
+      <th>Talla</th>
+      <th>Persona emergencia</th>
+      <th>Numero emergencia</th>
+      <th>Peblema</th>
+      <th>Alergia</th>
+      <th>Prescripcion</th>
+      <th>Tratamiento</th>
+      <th>Declaracion</th>
+      <th>Rut pago</th>
+      <th>Pago</th>
+      <th>Dorsal</th>
+      <th>Lugar</th>
+      <th>Tiempo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @runners.each do |runner| %>
+      <tr>
+        <td><%= runner.rut %></td>
+        <td><%= runner.sexo %></td>
+        <td><%= runner.nombres %></td>
+        <td><%= runner.apellido_paterno %></td>
+        <td><%= runner.apellido_materno %></td>
+        <td><%= runner.fecha_nac %></td>
+        <td><%= runner.pais %></td>
+        <td><%= runner.ciudad %></td>
+        <td><%= runner.direccion %></td>
+        <td><%= runner.telefono %></td>
+        <td><%= runner.correo %></td>
+        <td><%= runner.club %></td>
+        <td><%= runner.talla %></td>
+        <td><%= runner.persona_emergencia %></td>
+        <td><%= runner.numero_emergencia %></td>
+        <td><%= runner.peblema %></td>
+        <td><%= runner.alergia %></td>
+        <td><%= runner.prescripcion %></td>
+        <td><%= runner.tratamiento %></td>
+        <td><%= runner.declaracion %></td>
+        <td><%= runner.rut_pago %></td>
+        <td><%= runner.pago %></td>
+        <td><%= runner.dorsal %></td>
+        <td><%= runner.lugar %></td>
+        <td><%= runner.tiempo %></td>
+        <td><%= link_to 'Ver', runner, :class => 'btn btn-xs btn-success' %></td>
+        <td><%= link_to 'Editar', edit_runner_path(runner), :class => 'btn btn-xs btn-warning' %></td>
+        <td><%= link_to 'Eliminar', runner, method: :delete, data: { confirm: 'Seguro que quieres eliminar a este corredor?' }, :class => 'btn btn-xs btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nevo Corredor', new_runner_path %>
