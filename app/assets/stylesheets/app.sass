@@ -1,5 +1,124 @@
 @import "bootstrap"
 @import "font-awesome-sprockets"
 @import "font-awesome"
+@import "inscripcion"
 
 $rojo-cvo: #c62626
+
+body
+	font-size: 15px
+	line-height: 1.42857
+
+.logo
+	width: 150px
+	height: auto
+
+.nav 
+	border-radius: 0px !important
+	padding: 43px 0
+
+
+.navbar 
+	border: none
+	border-radius: 0px !important
+	margin: 0
+	position: relative
+	min-height: 50px
+	border-bottom: 1px solid #ddd
+
+.navbar-nav 
+	margin: 0
+	border-color: rgba(0,0,0,.3)
+
+.navbar-inverse
+	background-color: #fff
+
+.navbar-inverse .navbar-nav > li > a 
+	letter-spacing: 1px
+	font-size: 1.4rem
+	@include transition(color 350ms ease-in-out)
+	&:hover, &:focus 
+		color: #f33 !important
+		background-color: transparent
+
+
+.navbar-nav > li > a 
+	padding-top: 15.5px
+	line-height: normal
+
+
+.navbar-toggle 
+	margin-top: 52px
+	margin-bottom: 0
+
+
+.navbar-inverse
+.navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus 
+	color: #f33 !important
+	background-color: transparent
+	&::after 
+		background-color: rgba(0, 0, 0, 0.1)
+		//border-radius: 2px
+		content: ""
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+		@include skew(-20deg, 0deg)
+    
+
+
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form 
+	border-color: rgba(0, 0, 0, 0.1)
+
+
+.navbar-inverse .navbar-toggle 
+	border-color: transparent !important
+
+
+.navbar-inverse .navbar-toggle .icon-bar 
+	background-color: #222
+
+
+.navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus 
+	background-color: #ccc
+
+
+@media (max-width: 992px) 
+	.navbar-header 
+		float: none
+    
+	.navbar-left,.navbar-right 
+		float: none !important
+    
+	.navbar-toggle 
+		display: block
+    
+	.navbar-collapse 
+		border-top: 1px solid transparent
+		box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1)
+    
+	.navbar-fixed-top 
+		top: 0
+		border-width: 0 0 1px
+    
+	.navbar-collapse.collapse 
+		display: none !important
+    
+	.navbar-nav 
+		float: none !important
+		margin-top: 7.5px
+    
+	.navbar-nav>li 
+		float: none
+    
+	.navbar-nav>li>a 
+		padding-top: 10px
+		padding-bottom: 10px
+	
+	.collapse.in 
+		display: block !important
+    

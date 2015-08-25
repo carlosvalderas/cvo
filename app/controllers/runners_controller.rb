@@ -5,6 +5,12 @@ class RunnersController < ApplicationController
   # GET /runners.json
   def index
     @runners = Runner.all
+    @category = Category.all
+    respond_to do |format|
+      format.html
+      format.xlsx { render xlsx: "corredores", template: "runners/index" }
+      format.json { render json: Runner.all}
+    end
   end
 
   # GET /runners/1
@@ -15,6 +21,7 @@ class RunnersController < ApplicationController
   # GET /runners/new
   def new
     @runner = Runner.new
+    @category = Category.all
   end
 
   # GET /runners/1/edit
@@ -28,7 +35,7 @@ class RunnersController < ApplicationController
 
     respond_to do |format|
       if @runner.save
-        format.html { redirect_to @runner, notice: 'Runner was successfully created.' }
+        format.html { redirect_to @runner, notice: 'Corredor inscrito correctamente.' }
         format.json { render :show, status: :created, location: @runner }
       else
         format.html { render :new }
@@ -42,7 +49,7 @@ class RunnersController < ApplicationController
   def update
     respond_to do |format|
       if @runner.update(runner_params)
-        format.html { redirect_to @runner, notice: 'Runner was successfully updated.' }
+        format.html { redirect_to @runner, notice: 'Corredor actualizado correctamente.' }
         format.json { render :show, status: :ok, location: @runner }
       else
         format.html { render :edit }
@@ -56,7 +63,7 @@ class RunnersController < ApplicationController
   def destroy
     @runner.destroy
     respond_to do |format|
-      format.html { redirect_to runners_url, notice: 'Runner was successfully destroyed.' }
+      format.html { redirect_to runners_url, notice: 'Corredor eliminado correctamente.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +76,6 @@ class RunnersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def runner_params
-      params.require(:runner).permit(:rut, :sexo, :nombres, :apellido_paterno, :apellido_materno, :fecha_nac, :pais, :ciudad, :direccion, :telefono, :correo, :club, :talla, :persona_emergencia, :numero_emergencia, :peblema, :alergia, :prescripcion, :tratamiento, :declaracion, :rut_pago, :pago, :dorsal, :lugar, :tiempo)
+      params.require(:runner).permit(:rut, :sexo, :nombres, :apellido_paterno, :apellido_materno, :fecha_nac, :pais, :ciudad, :direccion, :telefono, :correo, :club, :talla, :persona_emergencia, :numero_emergencia, :peblema, :alergia, :prescripcion, :tratamiento, :declaracion, :rut_pago, :pago, :dorsal, :lugar, :tiempo, :category_id)
     end
 end

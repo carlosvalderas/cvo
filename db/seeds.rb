@@ -5,3 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+categories = Category.create([
+	{tipo: 'Elite', sexo: 'Hombre', edad: '18 en adelante'},
+	{tipo: 'Elite', sexo: 'Mujer', edad: '18 en adelante'},
+	{tipo: 'Amateur', sexo: 'Hombre', edad: '18 - 29'},
+	{tipo: 'Amateur', sexo: 'Mujer', edad: '18 - 29'},
+	{tipo: 'Familiar', sexo: 'Hombre', edad: '18 en adelante'},
+	{tipo: 'Familiar', sexo: 'Mujer', edad: '18 en adelante'}
+])

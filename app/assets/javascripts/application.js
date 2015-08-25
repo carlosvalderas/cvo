@@ -15,3 +15,22 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
+
+$(function() {
+	$( ".next1js" ).click(function() {
+		$( ".inscripcion-datos" ).addClass( "hide" );
+		$( ".inscripcion-contacto" ).removeClass( "hide" );
+	});
+	$( ".next2js" ).click(function() {
+		$( ".inscripcion-contacto" ).addClass( "hide" );
+		$( ".inscripcion-medico" ).removeClass( "hide" );
+	});
+	$( ".next3js" ).click(function() {
+		$( ".inscripcion-medico" ).addClass( "hide" );
+		$( ".inscripcion-declaracion" ).removeClass( "hide" );
+	});
+	$( ".next4js" ).click(function() {
+		$( ".inscripcion-declaracion" ).addClass( "hide" );
+		$( ".inscripcion-rut" ).removeClass( "hide" );
+	});
+});

@@ -7,7 +7,55 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<div class="container">
+	<nav class="navbar navbar-inverse" role="navigation"> <!-- navbar-fixed-top -->
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://www.cvo.cl/2015">
+	        	<%= image_tag("logo-cvo.png", class: "logo") %>
+	        </a>
+	        </div>
+
+	        <!-- Collect the nav links, forms, and other content for toggling -->
+	        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	            <ul class="nav navbar-nav navbar-right">
+	                <!-- <li><a href="http://www.cvo.cl/2015">INICIO</a></li> -->
+	                
+	                    
+	                
+	                    
+	                    <li><a href="info-carrera.html">INFO - CARRERA</a></li>
+	                    
+	                
+	                    
+	                
+	                    
+	                    <li><a href="galeria.html">GALERÍA</a></li>
+	                    
+	                
+	                    
+	                    <li><a href="ubicacion.html">UBICACIÓN</a></li>
+	                    
+	                
+	                    
+	                    <li><a href="inscritos.html">INSCRITOS</a></li>
+	                    
+	                
+	                    
+	                    <li><a href="inscripcion.html">INSCRIPCIÓN</a></li>
+	                    
+	                
+	                <li><a href="http://cvo.cl/2015/formbuilder/" class="contact">CONTACTO</a></li>
+	            </ul>
+	        </div>
+	    </div>
+	</nav>
+	<div class="container-fluid">
 		<%= yield %>
 	</div>
 </body>
