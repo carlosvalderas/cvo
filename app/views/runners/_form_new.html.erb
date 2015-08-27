@@ -19,8 +19,14 @@
           <%= f.text_field :rut, :class => 'form-control' %>
         </div>
         <div class="form-group">
-          <%= f.label :sexo, 'Género' %>
-          <%= f.text_field :sexo, :class => 'form-control' %>
+          <%= f.label :sexo, 'Sexo' %>
+          <select class="form-control" name="runner[sexo]" id="runner_sexo"><option value="">Por favor seleccione...</option>
+          <%= options_for_select([['Masculino'], ['Femenino']]) %>
+          </select>
+        </div>
+        <div class=" form-group">
+          <%= f.label 'Categoría' %>
+          <%= f.collection_select(:category_id, Category.all.order(:tipo), :id, :categoria_completa, {:prompt=>true}, {:class=>'form-control'}) %>
         </div>
         <div class="form-group">
           <%= f.label :nombres %>
@@ -60,10 +66,6 @@
           <%= f.label :correo %>
           <%= f.text_field :correo, :class => 'form-control' %>
         </div>
-        <div class=" form-group">
-          <%= f.label 'Categoría' %>
-          <%= f.collection_select(:category_id, Category.all.order(:tipo), :id, :categoria_completa, {:prompt=>true}, {:class=>'form-control'}) %>
-        </div>
         <div class="form-group">
           <%= f.label :club, 'Club o Team' %>
           <%= f.text_field :club, :class => 'form-control' %>
@@ -87,8 +89,8 @@
           <%= f.number_field :numero_emergencia, :class => 'form-control' %>
         </div>
         <div class="form-group">
-          <%= f.label :peblema, 'Tiene algún problema médico?' %>
-          <%= f.text_field :peblema, :class => 'form-control' %>
+          <%= f.label :problema, 'Tiene algún problema médico?' %>
+          <%= f.text_field :problema, :class => 'form-control' %>
         </div>
         <div class="form-group">
           <%= f.label :alergia, 'Es alérgico a algo?' %>

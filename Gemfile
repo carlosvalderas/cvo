@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'will_paginate'
+gem 'will_paginate-bootstrap'
 #gema de heroku
 gem 'rails_12factor', group: :production
 #gema excel

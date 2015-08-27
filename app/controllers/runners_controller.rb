@@ -4,11 +4,12 @@ class RunnersController < ApplicationController
   # GET /runners
   # GET /runners.json
   def index
-    @runners = Runner.all
+    @runners = Runner.all.order("LOWER(apellido_paterno) ASC").page(params[:page]).per_page(3)
+    @corredores = Runner.all.order("LOWER(apellido_paterno) ASC")
     @category = Category.all
     respond_to do |format|
       format.html
-      format.xlsx { render xlsx: "corredores", template: "runners/index" }
+      format.xlsx { render xlsx: "runners", template: "runners/index" }
       format.json { render json: Runner.all}
     end
   end
@@ -76,6 +77,6 @@ class RunnersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def runner_params
-      params.require(:runner).permit(:rut, :sexo, :nombres, :apellido_paterno, :apellido_materno, :fecha_nac, :pais, :ciudad, :direccion, :telefono, :correo, :club, :talla, :persona_emergencia, :numero_emergencia, :peblema, :alergia, :prescripcion, :tratamiento, :declaracion, :rut_pago, :pago, :dorsal, :lugar, :tiempo, :category_id)
+      params.require(:runner).permit(:rut, :sexo, :category_id, :nombres, :apellido_paterno, :apellido_materno, :fecha_nac, :pais, :ciudad, :direccion, :telefono, :correo, :club, :talla, :persona_emergencia, :numero_emergencia, :peblema, :alergia, :prescripcion, :tratamiento, :declaracion, :rut_pago, :pago, :dorsal, :lugar, :tiempo)
     end
 end

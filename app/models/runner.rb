@@ -9,7 +9,6 @@ class Runner < ActiveRecord::Base
   validates :fecha_nac, presence: true
   validates :pais, presence: true
   validates :ciudad, presence: true
-  validates :direccion, presence: true
   validates :telefono, presence: true
   validates :correo, presence: true
   validates :talla, presence: true

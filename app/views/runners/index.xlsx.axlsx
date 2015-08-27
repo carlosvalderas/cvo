@@ -1,0 +1,15 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "Runners") do |sheet|
+  sheet.add_row ['Rut', 'Sexo','Categoría', 'Nombres', 'Apellido Paterno', 'Apellido Materno', 'Fecha Nacimiento', 'País', 'Ciudad ', 'Teléfono', 'Correo', 'Club', 'Talla', 'Persona Emergencia', 'Número Emergencia', 'Problema Médico', 'Alergia', 'Prescripción Médica', 'Tratamiento Médico', 'Declaración', 'Rut Pago', 'Pago?']
+  @corredores.each do |runner|
+  	runid = runner.category_id
+  	categoria = Category.find(runid)
+  	if runner.declaracion==true
+  		rundeclaracion = "Acepto"
+  	end
+  	if runner.pago==true
+  		pago = "Sí"
+  	end
+    sheet.add_row [runner.rut, runner.sexo, "#{categoria.tipo} #{categoria.sexo} #{categoria.edad}", runner.nombres, runner.apellido_paterno, runner.apellido_materno, runner.fecha_nac, runner.pais, runner.ciudad, runner.telefono, runner.correo, runner.club, runner.talla, runner.persona_emergencia, runner.numero_emergencia, runner.problema, runner.alergia, runner.prescripcion, runner.tratamiento, rundeclaracion, runner.rut_pago, pago]
+  end
+end
