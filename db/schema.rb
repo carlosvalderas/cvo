@@ -38,6 +38,9 @@ ActiveRecord::Schema.define(version: 20150821212733) do
     t.string   "rut"
     t.string   "sexo"
     t.integer  "category_id"
+    t.string   "autorizacion_nombre"
+    t.string   "autorizacion_rut"
+    t.boolean  "autorizacion"
     t.string   "nombres"
     t.string   "apellido_paterno"
     t.string   "apellido_materno"
@@ -60,8 +63,8 @@ ActiveRecord::Schema.define(version: 20150821212733) do
     t.integer  "dorsal"
     t.integer  "lugar"
     t.time     "tiempo"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
   end
 
   add_index "runners", ["category_id"], name: "index_runners_on_category_id"

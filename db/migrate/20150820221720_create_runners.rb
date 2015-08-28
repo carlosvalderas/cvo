@@ -4,6 +4,9 @@ class CreateRunners < ActiveRecord::Migration
       t.string :rut
       t.string :sexo
       t.references :category, index: true, foreign_key: true
+      t.string :autorizacion_nombre
+      t.string :autorizacion_rut
+      t.boolean :autorizacion
       t.string :nombres
       t.string :apellido_paterno
       t.string :apellido_materno

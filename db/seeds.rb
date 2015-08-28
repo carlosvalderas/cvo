@@ -6,12 +6,23 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 categories = Category.create([
-	{tipo: 'Elite', sexo: 'Hombre', edad: '18 en adelante'},
-	{tipo: 'Elite', sexo: 'Mujer', edad: '18 en adelante'},
-	{tipo: 'Amateur', sexo: 'Hombre', edad: '18 - 29'},
-	{tipo: 'Amateur', sexo: 'Mujer', edad: '18 - 29'},
-	{tipo: 'Familiar', sexo: 'Hombre', edad: '18 en adelante'},
-	{tipo: 'Familiar', sexo: 'Mujer', edad: '18 en adelante'}
+	{tipo: 'ELITE', sexo: 'HOMBRE', edad: '18 Y MÁS AÑOS'},
+	{tipo: 'AMATEUR', sexo: 'HOMBRE', edad: '15 - 17 AÑOS'},
+	{tipo: 'AMATEUR', sexo: 'HOMBRE', edad: '18 - 29 AÑOS'},
+	{tipo: 'AMATEUR', sexo: 'HOMBRE', edad: '30 - 34 AÑOS'},
+	{tipo: 'AMATEUR', sexo: 'HOMBRE', edad: '35 - 39 AÑOS'},
+	{tipo: 'AMATEUR', sexo: 'HOMBRE', edad: '40 - 44 AÑOS'},
+	{tipo: 'AMATEUR', sexo: 'HOMBRE', edad: '45 - 49 AÑOS'},
+	{tipo: 'AMATEUR', sexo: 'HOMBRE', edad: '50 - 54 AÑOS'},
+	{tipo: 'AMATEUR', sexo: 'HOMBRE', edad: '55 - 59 AÑOS'},
+	{tipo: 'AMATEUR', sexo: 'HOMBRE', edad: '60 - 64 AÑOS'},
+	{tipo: 'AMATEUR', sexo: 'HOMBRE', edad: '65 Y MÁS AÑOS'},
+	{tipo: 'ELITE', sexo: 'MUJER', edad: '18 Y MÁS AÑOS'},
+	{tipo: 'AMATEUR', sexo: 'MUJER', edad: '18 - 29 AÑOS'},
+	{tipo: 'AMATEUR', sexo: 'MUJER', edad: '30 - 39 AÑOS'},
+	{tipo: 'AMATEUR', sexo: 'MUJER', edad: '40 - 49 AÑOS'},
+	{tipo: 'AMATEUR', sexo: 'MUJER', edad: '50 Y MÁS AÑOS'},
+	{tipo: 'FAMILIAR'}
 ])
 
 runners = Runner.create([

@@ -24,9 +24,25 @@
           <%= options_for_select([['Masculino'], ['Femenino']]) %>
           </select>
         </div>
+
+        <div class="autorizacion">
+          <div class="form-group">
+            <%= f.label :autorizacion_rut %>
+            <%= f.text_field :autorizacion_rut, :class => 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :autorizacion_nombre %>
+            <%= f.text_field :autorizacion_nombre, :class => 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.check_box :autorizacion %>
+            <%= f.label :autorizacion, 'Acepto' %>
+          </div>
+        </div>
+
         <div class=" form-group">
           <%= f.label 'Categoría' %>
-          <%= f.collection_select(:category_id, Category.all.order(:tipo), :id, :categoria_completa, {:prompt=>true}, {:class=>'form-control'}) %>
+          <%= f.collection_select(:category_id, Category.all, :id, :categoria_completa, {:prompt=>true}, {:class=>'form-control'}) %>
         </div>
         <div class="form-group">
           <%= f.label :nombres %>
@@ -72,7 +88,9 @@
         </div>
         <div class="form-group">
           <%= f.label :talla, 'Talla de polera (regalo)' %>
-          <%= f.text_field :talla, :class => 'form-control' %>
+          <select class="form-control" name="runner[talla]" id="runner_talla"><option value="">Por favor seleccione...</option>
+          <%= options_for_select([['S'], ['M'], ['L'], ['XL']]) %>
+          </select>
         </div>
         <p class="next next2js btn btn-lg btn-primary">Siguiente</p>
       </div>

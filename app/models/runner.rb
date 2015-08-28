@@ -14,4 +14,23 @@ class Runner < ActiveRecord::Base
   validates :talla, presence: true
   validates :rut_pago, presence: true
   validates :category_id, presence: true
+
+
+  before_save :uppercases
+  def uppercases
+    sexo.upcase!
+    autorizacion_nombre.upcase!
+    nombres.upcase!
+    apellido_paterno.upcase!
+    apellido_materno.upcase!
+    pais.upcase!
+    ciudad.upcase!
+    correo.upcase!
+    club.upcase!
+    persona_emergencia.upcase!
+    problema.upcase!
+    alergia.upcase!
+    prescripcion.upcase!
+    tratamiento.upcase!
+  end
 end
