@@ -17,7 +17,15 @@
 //= require_tree .
 
 $(function() {
+	//Etapas del Formulario
 	$( ".next1js" ).click(function() {
+		if($( "#runner_rut" ).value==""){
+
+		}else if($( "#runner_sexo" ).value==""){
+
+		}
+
+
 		$( ".inscripcion-datos" ).addClass( "hide" );
 		$( ".inscripcion-contacto" ).removeClass( "hide" );
 	});
@@ -33,4 +41,7 @@ $(function() {
 		$( ".inscripcion-declaracion" ).addClass( "hide" );
 		$( ".inscripcion-rut" ).removeClass( "hide" );
 	});
+
+	
+
 });
