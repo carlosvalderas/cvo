@@ -32,7 +32,7 @@ class RunnersController < ApplicationController
   # POST /runners
   # POST /runners.json
   def create
-    @runner = Runner.new(runner_params).upcase
+    @runner = Runner.new(runner_params)
 
     respond_to do |format|
       if @runner.save
