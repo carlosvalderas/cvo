@@ -24,8 +24,12 @@
           <%= options_for_select([['MASCULINO'], ['FEMENINO']]) %>
           </select>
         </div>
+        <div class="form-group">
+          <%= f.label :fecha_nac, 'Fecha de nacimiento' %>
+          <%= f.date_field :fecha_nac, :class => 'form-control' %>
+        </div>
         <div class=" form-group">
-          <%= f.label 'Categoría' %>
+          <%= f.label 'Tipo Categoría' %>
           <%= f.collection_select(:category_id, Category.all, :id, :categoria_completa, {:prompt=>true}, {:class=>'form-control'}) %>
         </div>
         <div class="form-group">
@@ -39,10 +43,6 @@
         <div class="form-group">
           <%= f.label :apellido_materno %>
           <%= f.text_field :apellido_materno, :class => 'form-control' %>
-        </div>
-        <div class="form-group">
-          <%= f.label :fecha_nac, 'Fecha de nacimiento' %>
-          <%= f.date_field :fecha_nac, :class => 'form-control' %>
         </div>
         <div class="form-group">
           <%= f.label :pais, 'País' %>
