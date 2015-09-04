@@ -1,129 +1,145 @@
-<p id="notice"><%= notice %></p>
+<% runid = @runner.category_id %>
+<% categoria = Category.find(runid) %>
+<div class="row pre-inscripcion">
+  <p id="notice"><%= notice %></p>
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
 
-<p>
-  <strong>Rut:</strong>
-  <%= @runner.rut %>
-</p>
+    <h2>DATOS INGRESADOS</h2>
+    <p>
+      <strong>Rut:</strong>
+      <%= @runner.rut %>
+    </p>
 
-<p>
-  <strong>Sexo:</strong>
-  <%= @runner.sexo %>
-</p>
+    <p>
+      <strong>Sexo:</strong>
+      <%= @runner.sexo %>
+    </p>
 
-<p>
-  <strong>Nombres:</strong>
-  <%= @runner.nombres %>
-</p>
+    <p>
+      <strong>Categoría:</strong>
+      <%= "#{categoria.tipo} #{categoria.sexo} #{categoria.edad}" %>
+    </p>
 
-<p>
-  <strong>Apellido paterno:</strong>
-  <%= @runner.apellido_paterno %>
-</p>
+    <p>
+      <strong>Nombres:</strong>
+      <%= @runner.nombres %>
+    </p>
 
-<p>
-  <strong>Apellido materno:</strong>
-  <%= @runner.apellido_materno %>
-</p>
+    <p>
+      <strong>Apellido paterno:</strong>
+      <%= @runner.apellido_paterno %>
+    </p>
 
-<p>
-  <strong>Fecha nac:</strong>
-  <%= @runner.fecha_nac %>
-</p>
+    <p>
+      <strong>Apellido materno:</strong>
+      <%= @runner.apellido_materno %>
+    </p>
 
-<p>
-  <strong>Pais:</strong>
-  <%= @runner.pais %>
-</p>
+    <p>
+      <strong>Fecha nac:</strong>
+      <%= @runner.fecha_nac %>
+    </p>
 
-<p>
-  <strong>Ciudad:</strong>
-  <%= @runner.ciudad %>
-</p>
+    <p>
+      <strong>Pais:</strong>
+      <%= @runner.pais %>
+    </p>
 
-<p>
-  <strong>Direccion:</strong>
-  <%= @runner.direccion %>
-</p>
+    <p>
+      <strong>Ciudad:</strong>
+      <%= @runner.ciudad %>
+    </p>
 
-<p>
-  <strong>Telefono:</strong>
-  <%= @runner.telefono %>
-</p>
+    <p>
+      <strong>Telefono:</strong>
+      <%= @runner.telefono %>
+    </p>
 
-<p>
-  <strong>Correo:</strong>
-  <%= @runner.correo %>
-</p>
+    <p>
+      <strong>Correo:</strong>
+      <%= @runner.correo %>
+    </p>
+    
+    <% if @runner.club != "" && @runner.club != nil %>
+    <p>
+      <strong>Club:</strong>
+      <%= @runner.club %>
+    </p>
+    <% end %>
 
-<p>
-  <strong>Club:</strong>
-  <%= @runner.club %>
-</p>
+    <p>
+      <strong>Talla:</strong>
+      <%= @runner.talla %>
+    </p>
+    
+    <% if @runner.persona_emergencia != "" && @runner.persona_emergencia != nil %>
+    <p>
+      <strong>Persona emergencia:</strong>
+      <%= @runner.persona_emergencia %>
+    </p>
+    <% end %>
 
-<p>
-  <strong>Talla:</strong>
-  <%= @runner.talla %>
-</p>
+    <% if @runner.numero_emergencia != "" && @runner.numero_emergencia != nil %>
+    <p>
+      <strong>Numero emergencia:</strong>
+      <%= @runner.numero_emergencia %>
+    </p>
+    <% end %>
 
-<p>
-  <strong>Persona emergencia:</strong>
-  <%= @runner.persona_emergencia %>
-</p>
+    <% if @runner.problema != "" && @runner.problema != nil %>
+    <p>
+      <strong>Problema:</strong>
+      <%= @runner.problema %>
+    </p>
+    <% end %>
 
-<p>
-  <strong>Numero emergencia:</strong>
-  <%= @runner.numero_emergencia %>
-</p>
+    <% if @runner.alergia != "" && @runner.alergia != nil %>
+    <p>
+      <strong>Alergia:</strong>
+      <%= @runner.alergia %>
+    </p>
+    <% end %>
 
-<p>
-  <strong>Peblema:</strong>
-  <%= @runner.peblema %>
-</p>
+    <% if @runner.prescripcion != "" && @runner.prescripcion != nil %>
+    <p>
+      <strong>Prescripcion:</strong>
+      <%= @runner.prescripcion %>
+    </p>
+    <% end %>
 
-<p>
-  <strong>Alergia:</strong>
-  <%= @runner.alergia %>
-</p>
+    <% if @runner.tratamiento != "" && @runner.tratamiento != nil %>
+    <p>
+      <strong>Tratamiento:</strong>
+      <%= @runner.tratamiento %>
+    </p>
+    <% end %>
 
-<p>
-  <strong>Prescripcion:</strong>
-  <%= @runner.prescripcion %>
-</p>
+    <% if @runner.declaracion != "" && @runner.declaracion != nil %>
+    <p>
+      <strong>Declaracion Jurada:</strong>
+      <% if @runner.declaracion == true %>
+      <% decl = "ACEPTO" %>
+      <% else %>
+      <% decl = "NO ACEPTO" %>
+      <% end %>
+      <%= decl %>
+    </p>
+    <% end %>
 
-<p>
-  <strong>Tratamiento:</strong>
-  <%= @runner.tratamiento %>
-</p>
+    <p>
+      <strong>Rut pago:</strong>
+      <%= @runner.rut_pago %>
+    </p>
 
-<p>
-  <strong>Declaracion:</strong>
-  <%= @runner.declaracion %>
-</p>
+    <% if @runner.pago != nil && @runner.pago != nil %>
+    <p>
+      <strong>Pago:</strong>
+      <%= @runner.pago %>
+    </p>
+    <% end %>
 
-<p>
-  <strong>Rut pago:</strong>
-  <%= @runner.rut_pago %>
-</p>
-
-<p>
-  <strong>Pago:</strong>
-  <%= @runner.pago %>
-</p>
-
-<p>
-  <strong>Dorsal:</strong>
-  <%= @runner.dorsal %>
-</p>
-
-<p>
-  <strong>Lugar:</strong>
-  <%= @runner.lugar %>
-</p>
-
-<p>
-  <strong>Tiempo:</strong>
-  <%= @runner.tiempo %>
-</p>
-
-<%= link_to 'Editar', edit_runner_path(@runner) %> |
-<%= link_to 'Atrás', runners_path %>
+  </div>
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-8">
+    <%= image_tag("todo.jpg", class: "img-responsive") %>
+  </div>
+</div>

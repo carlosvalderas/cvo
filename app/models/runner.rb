@@ -19,18 +19,32 @@ class Runner < ActiveRecord::Base
   before_save :uppercases
   def uppercases
     sexo.upcase!
-    autorizacion_nombre.upcase!
+    if autorizacion_nombre
+      autorizacion_nombre.upcase!
+    end
     nombres.upcase!
     apellido_paterno.upcase!
     apellido_materno.upcase!
     pais.upcase!
     ciudad.upcase!
     correo.upcase!
-    club.upcase!
-    persona_emergencia.upcase!
-    problema.upcase!
-    alergia.upcase!
-    prescripcion.upcase!
-    tratamiento.upcase!
+    if club
+      club.upcase!
+    end
+    if persona_emergencia
+      persona_emergencia.upcase!
+    end
+    if problema
+      problema.upcase!
+    end
+    if alergia
+      alergia.upcase!
+    end
+    if prescripcion
+      prescripcion.upcase!
+    end
+    if tratamiento
+      tratamiento.upcase!
+    end
   end
 end

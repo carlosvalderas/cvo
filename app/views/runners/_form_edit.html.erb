@@ -1,117 +1,174 @@
-<%= form_for(@runner) do |f| %>
-  <% if @runner.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@runner.errors.count, "error") %> prohibited this runner from being saved:</h2>
+<div class="">
+  <%= form_for(@runner) do |f| %>
+    <% if @runner.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@runner.errors.count, "error") %> prohibited this runner from being saved:</h2>
 
-      <ul>
-      <% @runner.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
+        <ul>
+        <% @runner.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <section class="inscripcion-datos row">
+      <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
+        <h3>Datos Personales</h3>
+        <div class="form-group">
+          <%= f.label :rut %>
+          <%= f.text_field :rut, :class => 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :sexo, 'Sexo' %>
+          <select class="form-control" name="runner[sexo]" id="runner_sexo"><option value="">Por favor seleccione...</option>
+          <%= options_for_select([['MASCULINO'], ['FEMENINO']]) %>
+          </select>
+        </div>
+        <div class="form-group">
+          <%= f.label :fecha_nac, 'Fecha de nacimiento' %>
+          <%= f.date_field :fecha_nac, :class => 'form-control' %>
+        </div>
+        <div class=" form-group">
+          <%= f.label 'Tipo Categoría' %>
+          <%= f.collection_select(:category_id, Category.all, :id, :categoria_completa, {:prompt=>true}, {:class=>'form-control'}) %>
+        </div>
+        <div class="form-group">
+          <%= f.label :nombres %>
+          <%= f.text_field :nombres, :class => 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :apellido_paterno %>
+          <%= f.text_field :apellido_paterno, :class => 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :apellido_materno %>
+          <%= f.text_field :apellido_materno, :class => 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :pais, 'País' %>
+          <%= f.text_field :pais, :class => 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :ciudad %>
+          <%= f.text_field :ciudad, :class => 'form-control' %>
+        </div>
+        <p class="next next1js btn btn-lg btn-primary">Siguiente</p>
+      </div>
+    </section>
+    <section class="inscripcion-autorizacion row hide">
+      <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
+        <h3>Autorización Menor de Edad</h3>
+          <div class="form-group">
+            <label>Yo</label>
+            <%= f.text_field :autorizacion_nombre, :class => 'form-control' %>
+          </div>
+          <div class="form-group">
+            <label>Rut</label>
+            <%= f.text_field :autorizacion_rut, :class => 'form-control' %>
+          </div>
+          <div class="form-group">
+            <label>Representante de</label>
+            <input class="js-autorizado-nombre form-control" type="text" disabled>
+          </div>
+          <div class="form-group">
+            <label>Rut</label>
+            <input class="js-autorizado-rut form-control" type="text" disabled>
+          </div>
+          <p>Autorizo su participación en la competencia de mtbike Conquista Volcán Osorno – CVO y desligo a los organizadores, auspiciadores y patrocinadores de cualquier accidente o situación de toda índole que le pudiera ocurrir antes, durante y/o después de la competencia.  A su vez, me comprometo a informar a mi representado que en caminos públicos debe mantener siempre la derecha y respetar las leyes del tránsito.  Autorizo a la organización para que disponga libremente de las imágenes fotográficas o de videos en donde aparezca su participación.  Como también acepta y toma conocimiento de los artículos indicados en el reglamento de la competencia. </p>
+        <div class="form-group">
+          <%= f.check_box :autorizacion %>
+          <%= f.label :autorizacion, 'Acepto' %>
+        </div>
+        <p class="next next2js btn btn-lg btn-primary">Siguiente</p>
+      </div>
+    </section>
+    </section>
+    <section class="inscripcion-contacto row hide">
+      <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
+        <h3>Datos de Contacto</h3>
+        <div class="form-group">
+          <%= f.label :telefono, 'Teléfono' %>
+          <%= f.number_field :telefono, :class => 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :correo %>
+          <%= f.text_field :correo, :class => 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :club, 'Club o Team' %>
+          <%= f.text_field :club, :class => 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :talla, 'Talla de polera (regalo)' %>
+          <select class="form-control" name="runner[talla]" id="runner_talla"><option value="">Por favor seleccione...</option>
+          <%= options_for_select([['S'], ['M'], ['L'], ['XL']]) %>
+          </select>
+        </div>
+        <p class="next next3js btn btn-lg btn-primary">Siguiente</p>
+      </div>
+    </section>
+    <section class="inscripcion-medico row hide">
+      <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
+        <h3>Datos Médicos</h3>
+        <div class="form-group">
+          <%= f.label :persona_emergencia,'En caso de emergencia llamar a' %>
+          <%= f.text_field :persona_emergencia, :class => 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :numero_emergencia, 'Teléfono de emergencia' %>
+          <%= f.number_field :numero_emergencia, :class => 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :problema, 'Tiene algún problema médico?' %>
+          <%= f.text_field :problema, :class => 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :alergia, 'Es alérgico a algo?' %>
+          <%= f.text_field :alergia, :class => 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :prescripcion, 'Tiene alguna prescripción médica?' %>
+          <%= f.text_field :prescripcion, :class => 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :tratamiento, 'Está bajo algún tratamiento?' %>
+          <%= f.text_field :tratamiento, :class => 'form-control' %>
+        </div>
+        <p class="next next4js btn btn-lg btn-primary">Siguiente</p>
+      </div>
+    </section>
+    <section class="inscripcion-declaracion row hide">
+      <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
+        <h3>Declaración Jurada</h3>
+        <p>Declaro que conozco las condiciones de exigencia física de la competencia Conquista Volcán Osorno, CVO®. De igual manera indico que mi estado físico y mental son compatibles con la competencia. Siendo de mi absoluta responsabilidad cualquier accidente, enfermedad o insuficiencia que tenga relación con mi salud.</p>
+        <p>Me obligo a cumplir las instrucciones, disposiciones, reglamentos y ordenes entregadas por la organización que sean necesarias para cumplir la correcta realización del evento. Declaro estar de acuerdo que en caso de suspender, cancelar o aplazar la competencia por condiciones climáticas adversas, mi inscripción no será reembolsable.</p>
+        <p>Tengo pleno conocimiento que participar en la competencia conquista Volcán Osorno, CVO®, implica potenciales peligros y riesgos de muerte. Por lo tanto, renuncio expresamente y desligo de toda responsabilidad civil a los organizadores, auspiciadores y patrocinadores de cualquier accidente o situación de toda índole que me pudiera ocurrir antes, durante y después de la competencia.</p>
+        <p>Me comprometo a tomar todas las precauciones necesarias en descensos, especialmente en el sector del paso desolación en pleno volcán y en camino de asfalto entre la salida del sendero el Solitario y el cruce La Burbuja / Las Cascadas.</p>
+        <p>Reconozco que tengo exclusiva responsabilidad por mis pertenencias personales y equipo deportivo durante la competencia y actividades del evento.</p>
+        <p>En caminos públicos me comprometo a mantener siempre la derecha y respetar las leyes del tránsito.</p>
+        <p>Autorizo a la organización para que disponga libremente de las imágenes fotográficas o de videos en donde aparezca mi participación para que sean transmitidas por televisión, radio, prensa escrita o digital.</p>
+        <p>Reconozco que sólo el 25% de mi inscripción será reembolsada en caso de decidir no participar en la competencia, siempre y cuando el aviso sea antes del 31 de diciembre del 2015. Posterior a esa fecha renuncio a la devolución del porcentaje que establece la organización.</p>
+        <p>Declaro que mi inscripción puede ser transferible a otro competidor siempre y cuando sea con previo aviso antes del 31 de diciembre del 2015. De lo contrario, acepto la condición que no es transferible.</p>
+        <p>Tengo pleno conocimiento que mi inscripción en valida solo para la competencia CVO®. 2016 y no es transferible para las siguientes versiones.</p>
+        <p>Acepto y tomo conocimiento de los artículos indicados en el reglamento de la competencia y que lo indicado en esta declaración jurada es condición necesaria para participar en la C.V.O.</p>
+        <div class="form-group">
+          <%= f.check_box :declaracion %>
+          <%= f.label :declaracion, 'Acepto' %>
+        </div>
+        <p class="next next5js btn btn-lg btn-primary">Siguiente</p>
+      </div>
+    </section>
+    <section class="inscripcion-rut row hide">
+      <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
+        <h3>Confirmación de Pago</h3>
+        <div class="form-group">
+          <%= f.label :rut_pago, 'Rut de la persona que deposita/transfiere' %>
+          <%= f.text_field :rut_pago, :class => 'form-control' %>
+        </div>
+        <div class="actions">
+          <%= f.submit 'Inscribir', :class => 'btn btn-success btn-lg' %>
+        </div>
+      </div>
+    </section>
   <% end %>
-
-  <div class="field">
-    <%= f.label :rut %><br>
-    <%= f.text_field :rut %>
-  </div>
-  <div class="field">
-    <%= f.label :sexo %><br>
-    <%= f.text_field :sexo %>
-  </div>
-  <div class="field">
-    <%= f.label :nombres %><br>
-    <%= f.text_field :nombres %>
-  </div>
-  <div class="field">
-    <%= f.label :apellido_paterno %><br>
-    <%= f.text_field :apellido_paterno %>
-  </div>
-  <div class="field">
-    <%= f.label :apellido_materno %><br>
-    <%= f.text_field :apellido_materno %>
-  </div>
-  <div class="field">
-    <%= f.label :fecha_nac %><br>
-    <%= f.date_select :fecha_nac %>
-  </div>
-  <div class="field">
-    <%= f.label :pais %><br>
-    <%= f.text_field :pais %>
-  </div>
-  <div class="field">
-    <%= f.label :ciudad %><br>
-    <%= f.text_field :ciudad %>
-  </div>
-  <div class="field">
-    <%= f.label :direccion %><br>
-    <%= f.text_field :direccion %>
-  </div>
-  <div class="field">
-    <%= f.label :telefono %><br>
-    <%= f.number_field :telefono %>
-  </div>
-  <div class="field">
-    <%= f.label :correo %><br>
-    <%= f.text_field :correo %>
-  </div>
-  <div class="field">
-    <%= f.label :club %><br>
-    <%= f.text_field :club %>
-  </div>
-  <div class="field">
-    <%= f.label :talla %><br>
-    <%= f.text_field :talla %>
-  </div>
-  <div class="field">
-    <%= f.label :persona_emergencia %><br>
-    <%= f.text_field :persona_emergencia %>
-  </div>
-  <div class="field">
-    <%= f.label :numero_emergencia %><br>
-    <%= f.number_field :numero_emergencia %>
-  </div>
-  <div class="field">
-    <%= f.label :peblema %><br>
-    <%= f.text_field :peblema %>
-  </div>
-  <div class="field">
-    <%= f.label :alergia %><br>
-    <%= f.text_field :alergia %>
-  </div>
-  <div class="field">
-    <%= f.label :prescripcion %><br>
-    <%= f.text_field :prescripcion %>
-  </div>
-  <div class="field">
-    <%= f.label :tratamiento %><br>
-    <%= f.text_field :tratamiento %>
-  </div>
-  <div class="field">
-    <%= f.label :declaracion %><br>
-    <%= f.text_field :declaracion %>
-  </div>
-  <div class="field">
-    <%= f.label :rut_pago %><br>
-    <%= f.text_field :rut_pago %>
-  </div>
-  <div class="field">
-    <%= f.label :pago %><br>
-    <%= f.check_box :pago %>
-  </div>
-  <div class="field">
-    <%= f.label :dorsal %><br>
-    <%= f.number_field :dorsal %>
-  </div>
-  <div class="field">
-    <%= f.label :lugar %><br>
-    <%= f.number_field :lugar %>
-  </div>
-  <div class="field">
-    <%= f.label :tiempo %><br>
-    <%= f.time_select :tiempo %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

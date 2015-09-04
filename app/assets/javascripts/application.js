@@ -17,6 +17,19 @@
 //= require_tree .
 
 $(function() {
+
+	//evita que se envíe el formulario al precionar ENTER
+	$('form').keypress(function(e){   
+		if(e == 13){
+			return false;
+		}
+	});
+	//evita que se envíe el formulario al precionar ENTER
+	$('input').keypress(function(e){
+		if(e.which == 13){
+			return false;
+		}
+	});
 	//Etapas del Formulario
 	$( ".next1js" ).click(function() {
 		if($( "#runner_rut" ).val() == "" ){
@@ -59,7 +72,12 @@ $(function() {
 			$( ".inscripcion-datos" ).addClass( "hide" );
 			$( ".inscripcion-autorizacion" ).removeClass( "hide" );
 
-			$(".js-autorizado-nombre").val($("#runner_nombres").val() + " " + $("#runner_apellido_paterno").val() + " " + $("#runner_apellido_materno").val());
+			$(".js-autorizado-nombre").val($("#runner_nombres").val() 
+			+ " " +
+			$("#runner_apellido_paterno").val() 
+			+ " " + 
+			$("#runner_apellido_materno").val());
+
 			$(".js-autorizado-rut").val($("#runner_rut").val());
 
 			$( ".next2js" ).click(function() {
@@ -100,9 +118,7 @@ $(function() {
 		}else if($( "#runner_talla" ).val()==""){
 			$( "#runner_talla" ).addClass("invalido");
 			$( "#runner_talla" ).focus();
-
-
-
+		}else{
 			$( ".inscripcion-contacto" ).addClass( "hide" );
 			$( ".inscripcion-medico" ).removeClass( "hide" );
 		}
@@ -110,25 +126,25 @@ $(function() {
 	});
 	$( ".next4js" ).click(function() {
 
+		$( ".inscripcion-medico" ).addClass( "hide" );
+		$( ".inscripcion-declaracion" ).removeClass( "hide" );
+	});
+	$( ".next5js" ).click(function() {
+
 		if($( "#runner_declaracion" ).val()==""){
 			$( "#runner_declaracion" ).addClass("invalido");
 			$( "#runner_declaracion" ).focus();
+		}else{
+			$( ".inscripcion-declaracion" ).addClass( "hide" );
+			$( ".inscripcion-rut" ).removeClass( "hide" );
 		}
-
-		$( ".runner_inscripcion-medico" ).addClass( "hide" );
-		$( ".inscripcion-runner_inscripcion" ).removeClass( "hide" );
 	});
-	$( ".next5js" ).click(function() {
+	$( ".next6js" ).click(function() {
 
 		if($( "#runner_rut_pago" ).val()==""){
 			$( "#runner_rut_pago" ).addClass("invalido");
 			$( "#runner_rut_pago" ).focus();
 		}
-
-		$( ".inscripcion-declaracion" ).addClass( "hide" );
-		$( ".inscripcion-rut" ).removeClass( "hide" );
 	});
-
 	
-
 });

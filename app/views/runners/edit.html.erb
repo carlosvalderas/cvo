@@ -1,6 +1,13 @@
+<% if user_signed_in? %>
 <h1>Editar Corredor</h1>
 
-<%= render 'form' %>
+<%= render 'form_edit' %>
 
 <%= link_to 'Ver', @runner %> |
 <%= link_to 'Atrás', runners_path %>
+
+<% else %>
+
+<p class="text-danger">No estás autorizado para acceder a este contenido.</p>
+
+<% end %>

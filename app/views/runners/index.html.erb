@@ -1,3 +1,4 @@
+<% if user_signed_in? %>
 <p id="notice"><%= notice %></p>
 <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete%></br>
 <%= link_to "Cambiar contraseña", edit_user_registration_path %>
@@ -83,6 +84,9 @@
   </table>
 </div>
 <%= will_paginate @runners, previous_label: h("<"), next_label: h(">"), renderer: BootstrapPagination::Rails %>
-<br>
 
-<%= link_to 'Nevo Corredor', new_runner_path %>
+<% else %>
+
+<p class="text-danger">No estás autorizado para acceder a este contenido.</p>
+
+<% end %>
