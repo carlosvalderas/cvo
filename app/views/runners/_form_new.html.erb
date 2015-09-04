@@ -20,16 +20,22 @@
         </div>
         <div class="form-group">
           <%= f.label :sexo, 'Sexo' %>
-          <select class="form-control" name="runner[sexo]" id="runner_sexo"><option value="">Por favor seleccione...</option>
+          <select class="form-control" name="runner[sexo]" id="runner_sexo" onchange="filtrar_categoria()"><option value="">Por favor seleccione...</option>
           <%= options_for_select([['MASCULINO'], ['FEMENINO']]) %>
           </select>
         </div>
         <div class="form-group">
           <%= f.label :fecha_nac, 'Fecha de nacimiento' %>
-          <%= f.date_field :fecha_nac, :class => 'form-control' %>
+          <%= f.date_field :fecha_nac, :class => 'form-control', :onchange => "filtrar_categoria();"%>
+        </div>
+        <div class="form-group">
+          <%= f.label 'Tipo Categoría' %>
+          <select class="form-control" name="runner[sexo]" id="tipo_cat" onchange="filtrar_categoria()"><option value="">Por favor seleccione...</option>
+          <%= options_for_select([['ELITE'], ['AMATEUR'], ['FAMILIAR']]) %>
+          </select>
         </div>
         <div class=" form-group">
-          <%= f.label 'Tipo Categoría' %>
+          <%= f.label 'Categoría' %>
           <%= f.collection_select(:category_id, Category.all, :id, :categoria_completa, {:prompt=>true}, {:class=>'form-control'}) %>
         </div>
         <div class="form-group">
@@ -163,10 +169,10 @@
         <h3>Confirmación de Pago</h3>
         <div class="form-group">
           <%= f.label :rut_pago, 'Rut de la persona que deposita/transfiere' %>
-          <%= f.text_field :rut_pago, :class => 'form-control', :required => true %>
+          <%= f.text_field :rut_pago, :class => 'form-control' %>
         </div>
         <div class="actions">
-          <%= f.submit 'Inscribir', :class => 'next6js btn btn-success btn-lg' %>
+          <%= f.submit 'Inscribir', :class => 'btn btn-success btn-lg' %>
         </div>
       </div>
     </section>
