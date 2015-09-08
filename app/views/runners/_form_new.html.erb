@@ -169,10 +169,10 @@
         <h3>Confirmación de Pago</h3>
         <div class="form-group">
           <%= f.label :rut_pago, 'Rut de la persona que deposita/transfiere' %>
-          <%= f.text_field :rut_pago, :class => 'form-control' %>
+          <%= f.text_field :rut_pago, :class => 'form-control', :required => true %>
         </div>
         <div class="actions">
-          <%= f.submit 'Inscribir', :class => 'btn btn-success btn-lg' %>
+          <%= f.submit 'Inscribir', :class => 'next6js btn btn-success btn-lg' %>
         </div>
       </div>
     </section>
