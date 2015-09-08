@@ -83,9 +83,12 @@ $(function() {
 			$("#runner_apellido_materno").val());
 
 			$(".js-autorizado-rut").val($("#runner_rut").val());
-
 			$( ".next2js" ).click(function() {
 				if($( "#runner_autorizacion_rut" ).val()==""){
+					$( "#runner_autorizacion_rut" ).addClass("invalido");
+					$( "#runner_autorizacion_rut" ).focus();
+
+				}else if(VerificaRut($( "#runner_autorizacion_rut" ).val()) == false){
 					$( "#runner_autorizacion_rut" ).addClass("invalido");
 					$( "#runner_autorizacion_rut" ).focus();
 
@@ -93,14 +96,15 @@ $(function() {
 					$( "#runner_autorizacion_nombre" ).addClass("invalido");
 					$( "#runner_autorizacion_nombre" ).focus();
 
-				}else if($( "#runner_autorizacion" ).val()==""){
+				}else{
+				if($( "#runner_autorizacion" ).prop("checked") === false){
 					$( "#runner_autorizacion" ).addClass("invalido");
 					$( "#runner_autorizacion" ).focus();
-
 				}
-				
-				$( ".inscripcion-autorizacion" ).addClass( "hide" );
-				$( ".inscripcion-contacto" ).removeClass( "hide" );
+				else{
+					$( ".inscripcion-autorizacion" ).addClass( "hide" );
+					$( ".inscripcion-contacto" ).removeClass( "hide" );
+				}}
 			});
 		}else{
 			$( ".inscripcion-datos" ).addClass( "hide" );
@@ -110,7 +114,7 @@ $(function() {
 
 	});
 	$( ".next3js" ).click(function() {
-
+		var regex = /[\w-\.]{2,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}/;
 		if($( "#runner_telefono" ).val()==""){
 			$( "#runner_telefono" ).addClass("invalido");
 			$( "#runner_telefono" ).focus();
@@ -119,7 +123,11 @@ $(function() {
 			$( "#runner_correo" ).addClass("invalido");
 			$( "#runner_correo" ).focus();
 
-		}else if($( "#runner_talla" ).val()==""){
+		}else if (!regex.test($( "#runner_correo" ).val().trim())) {
+		        $( "#runner_correo" ).addClass("invalido");
+				$( "#runner_correo" ).focus();
+		}
+		 else if($( "#runner_talla" ).val()==""){
 			$( "#runner_talla" ).addClass("invalido");
 			$( "#runner_talla" ).focus();
 		}else{
@@ -135,7 +143,7 @@ $(function() {
 	});
 	$( ".next5js" ).click(function() {
 
-		if($( "#runner_declaracion" ).val()==""){
+		if($( "#runner_declaracion" ).prop("checked") === false){
 			$( "#runner_declaracion" ).addClass("invalido");
 			$( "#runner_declaracion" ).focus();
 		}else{
@@ -144,10 +152,15 @@ $(function() {
 		}
 	});
 	$( ".next6js" ).click(function() {
-
 		if($( "#runner_rut_pago" ).val()==""){
 			$( "#runner_rut_pago" ).addClass("invalido");
 			$( "#runner_rut_pago" ).focus();
+			event.preventDefault();
+		}
+		else if(VerificaRut($( "#runner_rut_pago" ).val()) == false){
+			$( "#runner_rut_pago" ).addClass("invalido");
+			$( "#runner_rut_pago" ).focus();
+			event.preventDefault();
 		}
 	});
 	

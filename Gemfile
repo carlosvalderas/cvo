@@ -9,6 +9,7 @@ gem 'axlsx_rails'
 gem 'rack-cors', :require => 'rack/cors'
 gem 'devise-i18n'
 gem 'puma'
+gem 'tzinfo-data', platforms: [:mingw, :mswin]
 gem 'devise'
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'font-awesome-sass', '~> 4.3.0'
